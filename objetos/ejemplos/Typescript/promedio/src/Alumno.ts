@@ -1,12 +1,7 @@
-class Alumno{
-    private nombre: string;
-    private dni: number;
-    private notas = new Array<number>();
+export class Alumno{
+    private notas: number[] = [];
 
-    constructor(nombre: string, dni: number){
-        this.nombre = nombre;
-        this.dni = dni;
-    }
+    constructor(private nombre: string, private dni: number){}
 
     public promedio() {
         var acu = 0;

@@ -1,5 +1,7 @@
+import { Alumno } from './Alumno';
+
 function main(): void {
-    var unAlumno = new Alumno("Pedro", 3489394)
+    let unAlumno = new Alumno("Pedro", 3489394);
     unAlumno.add(44)
     unAlumno.add(88)
     unAlumno.add(98)

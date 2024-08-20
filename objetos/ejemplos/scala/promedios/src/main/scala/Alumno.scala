@@ -6,7 +6,7 @@ class Alumno (private var dni : Long,
   private var notas = new ListBuffer[Integer]()
   
   def promedio = {
-    var acu = 0
+    var acu = 0.0
     for(nota <- notas) {
       acu = acu + nota
     }

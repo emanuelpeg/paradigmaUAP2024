@@ -2,7 +2,6 @@ package com.uap.model
 
 import scala.io.StdIn.{readInt, readLine}
 
-
 object Principal extends App {
 
   var juego = new Juego()

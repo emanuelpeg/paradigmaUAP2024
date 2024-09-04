@@ -9,12 +9,13 @@ class Juego {
   var puntos = 0
   
   def generarSerie():Unit = {
-    val selector = Random.nextInt(4);
+    val selector = Random.nextInt(5);
     
     selector match {
       case 0 => serie = new SerieNormal()
       case 1 => serie = new SeriePar()
       case 2 => serie = new SerieFibonacci()
+      case 3 => serie = new SerieMonotona()
       case _ => serie = new SerieImpar()
     }
   } 
@@ -31,6 +32,7 @@ class Juego {
        generarSerie()
        true
     } else {
+      puntos = puntos - 1
       generarSerie()
       false
     }

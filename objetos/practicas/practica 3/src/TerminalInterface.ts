@@ -1,6 +1,6 @@
 import readline from 'readline/promises'
 
-export default class TerminalInterface {
+export class TerminalInterface {
   private static instance: TerminalInterface
 
   private constructor() {}

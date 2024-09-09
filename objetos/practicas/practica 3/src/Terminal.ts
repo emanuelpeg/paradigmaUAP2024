@@ -55,9 +55,8 @@ export class Terminal {
   }
 
   lsp() {
-    const children = this.current.getChildren().map(child => child.getName()).sort();
     const file = new DataFile('display.txt', this.current);
-    file.setData(children.join('\n'));
+    file.setData(this.ls());
     this.current.add(file);
   }
 

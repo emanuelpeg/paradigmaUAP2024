@@ -23,7 +23,18 @@ object Clase1 {
   def factorial(n: Long): Long = ???
 
 
-  def fibonacci(n: Int): Long = ???
+  def fibonacci(n: Int): Long = {
+
+    def fibonacciAux(faa: Long, fa: Long, n: Int): Long =
+      if (n == 0) fa
+      else fibonacciAux(fa, faa + fa, n -1)
+
+
+    if (n == 0) 0
+    else if (n == 1) 1
+    else fibonacciAux(0, 1, n - 1)
+
+  }
 
 
   /**

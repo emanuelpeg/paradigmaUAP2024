@@ -7,9 +7,9 @@ const otherParagraph = new practica.ParagraphNotEmpty("Hola",
 
 describe('Ejemplo', () => {
   test('insert', () => {
-    const paragraph = practica.insert("Hola",
+    const paragraph = practica.insert("!!!!",
       practica.insert("Mundo",
-        practica.insert("!!!!",
+        practica.insert("Hola",
           new practica.ParagraphEmpty()
         )
       )

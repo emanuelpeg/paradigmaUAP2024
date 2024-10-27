@@ -39,3 +39,7 @@ export const toString = <T>(l: List<T>): string => {
     .exhaustive()
   return aux(l, '')
 }
+
+export const reduce = <T, U>(list: List<T>, fx: (acc: U, elem: T) => U, init: U): U => match(list)
+  .with(null, () => init)
+  .otherwise(({ head, tail }) => reduce(tail, fx, fx(init, head)))

@@ -1,6 +1,6 @@
 
 import { match, P } from 'ts-pattern';
-import { List } from './List';
+import { List, reduce } from './List';
 
 type Tree = null | TreeNode;
 export class TreeNode {
@@ -8,10 +8,16 @@ export class TreeNode {
 }
 
 // Inserta un valor en el arbol
-export const insert = (x: number, t: Tree = null): TreeNode => new TreeNode(0)
+export const insert = (x: number, t: Tree = null): TreeNode => match(t)
+  .with(null, () => new TreeNode(x))
+  .with({ value: P.number.gt(x) }, ({ value, left, right }) => new TreeNode(value, insert(x, left), right))
+  .otherwise(({ value, left, right }) => new TreeNode(value, left, insert(x, right)))
 
 // Construye un arbol a partir de una lista de numeros
-export const fromList = (l: List<number>): Tree => new TreeNode(0)
+export const fromList = (l: List<number>): Tree => reduce(l, (tree, value) => insert(value, tree), null as Tree)
+
+const fromArray = (array: number[]): Tree =>
+  array.reduce((tree, value) => insert(value, tree), null as Tree)
 
 // Determina si un valor esta en el arbol
 export const contains = (x: number, t: Tree): boolean => true
